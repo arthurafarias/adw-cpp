@@ -1,0 +1,15 @@
+{
+    "cmake.debugConfig": {
+        "environment": [
+            // {
+            //     "name": "G_MESSAGES_DEBUG",
+            //     "value": "all"
+            // },
+            // {
+            //     "name": "GTK_DEBUG",
+            //     "value": "all"
+            // }
+        ]
+    },
+    "cmake.ctest.testExplorerIntegrationEnabled": true
+}

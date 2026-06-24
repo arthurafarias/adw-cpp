@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adw-cpp — C++23 Bindings for GTK4 & Libadwaita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-icon">◈</span>
+                adw-cpp
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#getting-started">Get Started</a>
+                <a href="#api">API</a>
+                <a href="#examples">Examples</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://github.com/username/adw-cpp" class="nav-github" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="badge-row">
+                <span class="badge">C++23</span>
+                <span class="badge">GTK 4</span>
+                <span class="badge">Libadwaita</span>
+                <span class="badge">~1,900 bindings</span>
+            </div>
+            <h1>Build Beautiful GNOME Apps<br>in Modern C++</h1>
+            <p class="hero-subtitle">
+                Fully type-safe, auto-generated C++23 bindings for the entire GTK4 and
+                Libadwaita ecosystem. Complete signal &amp; property proxies, RAII memory
+                management, and C++20 module support.
+            </p>
+            <div class="hero-actions">
+                <a href="#getting-started" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/username/adw-cpp" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+            <div class="hero-code">
+                <div class="code-header">
+                    <span class="code-dot"></span>
+                    <span class="code-dot"></span>
+                    <span class="code-dot"></span>
+                    <span class="code-filename">main.cpp</span>
+                </div>
+                <pre><code><span class="kw">#include</span> <span class="str">&lt;adw/adw.hpp&gt;</span>
+
+<span class="kw">namespace</span> adw = gi::repository::Adw;
+<span class="kw">namespace</span> gtk = gi::repository::Gtk;
+
+<span class="kw">static void</span> <span class="fn">on_activate</span>(adw::Application app) {
+    <span class="kw">auto</span> window = adw::ApplicationWindow::<span class="fn">new_</span>();
+    window.<span class="fn">set_title</span>(<span class="str">"Hello, Adwaita!"</span>);
+    window.<span class="fn">set_application</span>(app);
+
+    <span class="kw">auto</span> header = adw::HeaderBar::<span class="fn">new_</span>();
+    <span class="kw">auto</span> view   = adw::ToolbarView::<span class="fn">new_</span>();
+    view.<span class="fn">add_top_bar</span>(header);
+
+    button.<span class="fn">signal_clicked</span>().<span class="fn">connect</span>([&amp;] {
+        toast.<span class="fn">set_title</span>(<span class="str">"Button clicked!"</span>);
+        overlay.<span class="fn">add_toast</span>(toast);
+    });
+
+    window.<span class="fn">present</span>();
+}
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">int</span> argc, <span class="kw">char</span> *argv[]) {
+    <span class="kw">auto</span> app = adw::Application::<span class="fn">new_</span>(
+        <span class="str">"org.example.Hello"</span>, {});
+    app.<span class="fn">signal_activate</span>().<span class="fn">connect</span>(
+        [app]() <span class="kw">mutable</span> { <span class="fn">on_activate</span>(app); });
+    <span class="kw">return</span> app.<span class="fn">run</span>(argc, argv);
+}</code></pre>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+        <div class="stat"><span class="stat-number">~1,900</span><span class="stat-label">Binding files</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">16</span><span class="stat-label">Namespaces</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">C++23</span><span class="stat-label">Standard</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">GTK 4</span><span class="stat-label">+ Libadwaita</span></div>
+    </div>
+
+    <!-- Features -->
+    <section id="features" class="section features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything you need</h2>
+                <p>A complete, production-ready C++ interface to the GNOME platform.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⬡</div>
+                    <h3>Complete Coverage</h3>
+                    <p>~1,900 binding files across 16 namespaces — Adw, Gtk, Gio, GLib, GObject, GDK, Pango, Cairo, Graphene, GSK, and more. Every widget, every signal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Type Safety</h3>
+                    <p>Strong C++ types wrap the GObject type system. No raw <code>gpointer</code> or <code>GObject*</code> leakage — the compiler enforces correctness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Signal &amp; Property Proxies</h3>
+                    <p>Connect to any GObject signal or access any property through generated proxy objects with full type information preserved.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♻️</div>
+                    <h3>RAII Memory Management</h3>
+                    <p><code>gi::transfer_full</code> and <code>gi::transfer_none</code> track ownership at compile time and prevent memory leaks without runtime overhead.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>C++20 Modules</h3>
+                    <p>Optional <code>*.cppm</code> module units for each namespace enable faster builds and better dependency isolation in modern toolchains.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Modern CMake</h3>
+                    <p>Exported targets, pkg-config file generation, and <code>find_package(GiRepositoryAdw)</code> support for seamless integration into any CMake project.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Nullable Overloads</h3>
+                    <p>Every method accepting a nullable GObject provides a no-arg overload to pass <code>nullptr</code> — no ambiguity, no casts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Auto-Generated</h3>
+                    <p>Bindings are auto-generated from GObject Introspection (GIR) metadata via <a href="https://gitlab.com/mnauw/cppgir" target="_blank">cppgir</a>, ensuring accuracy and completeness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section id="getting-started" class="section getting-started">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Started</h2>
+                <p>Up and running in minutes.</p>
+            </div>
+            <div class="steps">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Install dependencies</h3>
+                        <div class="tabs" data-tabs="deps">
+                            <button class="tab active" data-tab="fedora">Fedora / RHEL</button>
+                            <button class="tab" data-tab="ubuntu">Ubuntu / Debian</button>
+                            <button class="tab" data-tab="arch">Arch Linux</button>
+                        </div>
+                        <div class="tab-content active" id="deps-fedora">
+                            <pre><code>sudo dnf install libadwaita-devel gtk4-devel graphene-devel cmake</code></pre>
+                        </div>
+                        <div class="tab-content" id="deps-ubuntu">
+                            <pre><code>sudo apt install libadwaita-1-dev libgtk-4-dev \
+    libgraphene-1.0-dev cmake</code></pre>
+                        </div>
+                        <div class="tab-content" id="deps-arch">
+                            <pre><code>sudo pacman -S libadwaita gtk4 graphene cmake</code></pre>
+                        </div>
+                        <p class="step-note">You also need to build and install <a href="https://gitlab.com/mnauw/cppgir" target="_blank">cppgir</a> separately.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Build &amp; install the library</h3>
+                        <pre><code>git clone https://github.com/username/adw-cpp
+cd adw-cpp
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j$(nproc)
+sudo cmake --install build</code></pre>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Link from your CMake project</h3>
+                        <pre><code><span class="kw">find_package</span>(GiRepositoryAdw <span class="kw">REQUIRED</span>)
+
+<span class="fn">target_link_libraries</span>(my-app <span class="kw">PRIVATE</span>
+    GiRepositoryAdw::gi-repository-adw-standalone)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Overview -->
+    <section id="api" class="section api-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>API Patterns</h2>
+                <p>Consistent, predictable, and idiomatic C++.</p>
+            </div>
+            <div class="api-grid">
+                <div class="api-card">
+                    <h3>Construction</h3>
+                    <pre><code><span class="kw">auto</span> row = adw::ActionRow::<span class="fn">new_</span>();
+<span class="kw">auto</span> win = adw::ApplicationWindow::<span class="fn">new_</span>();
+<span class="kw">auto</span> btn = gtk::Button::<span class="fn">new_with_label</span>(<span class="str">"Click"</span>);</code></pre>
+                </div>
+                <div class="api-card">
+                    <h3>Properties</h3>
+                    <pre><code>row.<span class="fn">set_title</span>(<span class="str">"Username"</span>);
+row.<span class="fn">set_subtitle</span>(<span class="str">"Display name"</span>);
+<span class="kw">auto</span> title = row.<span class="fn">get_title</span>();
+
+<span class="cm">// property_*() returns a GObject property proxy</span>
+row.<span class="fn">property_title</span>().<span class="fn">get_value</span>();</code></pre>
+                </div>
+                <div class="api-card">
+                    <h3>Signals</h3>
+                    <pre><code>button.<span class="fn">signal_clicked</span>().<span class="fn">connect</span>([] {
+    g_print(<span class="str">"clicked!\n"</span>);
+});
+
+row.<span class="fn">signal_activated</span>().<span class="fn">connect</span>([&amp;] {
+    <span class="fn">handle_row_activated</span>();
+});</code></pre>
+                </div>
+                <div class="api-card">
+                    <h3>Nullable overloads</h3>
+                    <pre><code><span class="cm">// set an activatable widget</span>
+row.<span class="fn">set_activatable_widget</span>(some_widget);
+
+<span class="cm">// clear it (pass nullptr)</span>
+row.<span class="fn">set_activatable_widget</span>();</code></pre>
+                </div>
+                <div class="api-card">
+                    <h3>Style Manager</h3>
+                    <pre><code><span class="kw">auto</span> mgr = adw::StyleManager::<span class="fn">get_default</span>();
+mgr.<span class="fn">set_color_scheme</span>(
+    adw::ColorScheme::FORCE_DARK_);</code></pre>
+                </div>
+                <div class="api-card">
+                    <h3>Enumerations</h3>
+                    <pre><code>adw::ColorScheme::FORCE_DARK_
+adw::ColorScheme::FORCE_LIGHT_
+adw::AccentColor::BLUE_
+gtk::Align::CENTER_
+gtk::Orientation::VERTICAL_</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Namespaces -->
+    <section id="namespaces" class="section ns-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Namespace Coverage</h2>
+                <p>The entire GNOME platform, fully wrapped.</p>
+            </div>
+            <div class="ns-table-wrap">
+                <table class="ns-table">
+                    <thead>
+                        <tr>
+                            <th>C++ namespace</th>
+                            <th>Module</th>
+                            <th>Covers</th>
+                            <th>Files</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>gi::repository::Adw</code></td><td><code>adw.cppm</code></td><td>Libadwaita widgets &amp; utilities</td><td>~182</td></tr>
+                        <tr><td><code>gi::repository::Gtk</code></td><td><code>gtk.cppm</code></td><td>GTK 4 widget toolkit</td><td>~640</td></tr>
+                        <tr><td><code>gi::repository::Gio</code></td><td><code>gio.cppm</code></td><td>Async I/O, actions, app model</td><td>~346</td></tr>
+                        <tr><td><code>gi::repository::GLib</code></td><td><code>glib.cppm</code></td><td>Core utilities &amp; types</td><td>~132</td></tr>
+                        <tr><td><code>gi::repository::GObject</code></td><td><code>gobject.cppm</code></td><td>GObject type system</td><td>~67</td></tr>
+                        <tr><td><code>gi::repository::Gdk</code></td><td><code>gdk.cppm</code></td><td>Display, surface, input events</td><td>~108</td></tr>
+                        <tr><td><code>gi::repository::Pango</code></td><td><code>pango.cppm</code></td><td>Text layout &amp; rendering</td><td>~98</td></tr>
+                        <tr><td><code>gi::repository::Cairo</code></td><td><code>cairo.cppm</code></td><td>2D vector graphics</td><td>~36</td></tr>
+                        <tr><td><code>gi::repository::Graphene</code></td><td><code>graphene.cppm</code></td><td>2D/3D math primitives</td><td>~52</td></tr>
+                        <tr><td><code>gi::repository::Gsk</code></td><td><code>gsk.cppm</code></td><td>GPU rendering framework</td><td>~42</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples" class="section examples-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Examples</h2>
+                <p>Ready-to-run samples included in the repository.</p>
+            </div>
+            <div class="example-cards">
+                <div class="example-card">
+                    <div class="example-header">
+                        <span class="example-icon">👋</span>
+                        <h3>Hello World</h3>
+                    </div>
+                    <p>An <code>AdwApplicationWindow</code> with a <code>ToolbarView</code>, <code>HeaderBar</code>, and status page — the minimal skeleton for any GNOME app.</p>
+                    <code class="example-path">examples/hello-world/</code>
+                </div>
+                <div class="example-card">
+                    <div class="example-header">
+                        <span class="example-icon">⚙️</span>
+                        <h3>Preferences Window</h3>
+                    </div>
+                    <p>A full <code>AdwPreferencesWindow</code> with grouped rows: <code>SwitchRow</code>, <code>ComboRow</code>, and <code>EntryRow</code> demonstrating property binding patterns.</p>
+                    <code class="example-path">examples/preferences/</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="brand-icon">◈</span>
+                <span>adw-cpp</span>
+            </div>
+            <p class="footer-desc">Modern C++23 bindings for GTK4 and Libadwaita.<br>Auto-generated from GObject Introspection metadata.</p>
+            <div class="footer-links">
+                <a href="https://github.com/username/adw-cpp" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://gnome.pages.gitlab.gnome.org/libadwaita/" target="_blank" rel="noopener">Libadwaita Docs</a>
+                <a href="https://docs.gtk.org/gtk4/" target="_blank" rel="noopener">GTK4 Docs</a>
+                <a href="https://gitlab.com/mnauw/cppgir" target="_blank" rel="noopener">cppgir</a>
+            </div>
+            <p class="footer-copy">Built with ◈ adw-cpp</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

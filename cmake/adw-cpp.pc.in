@@ -1,0 +1,10 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: adw-cpp
+Description: @PROJECT_DESCRIPTION@
+Version: @PROJECT_VERSION@
+Requires: libadwaita-1 gtk4 gtk4-unix-print cppgir
+Libs: -L${libdir} -ladw-cpp
+Cflags: -I${includedir}/adw-cpp -std=c++23

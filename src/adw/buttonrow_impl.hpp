@@ -1,0 +1,132 @@
+// AUTO-GENERATED
+
+#ifndef _GI_ADW_BUTTONROW_IMPL_HPP_
+#define _GI_ADW_BUTTONROW_IMPL_HPP_
+
+namespace gi {
+
+namespace repository {
+
+namespace Adw {
+
+namespace base {
+
+// GtkWidget* /*none*/ adw_button_row_new ();
+// ::AdwButtonRow* /*none*/ adw_button_row_new ();
+Adw::ButtonRow base::ButtonRowBase::new_ () noexcept
+{
+  typedef ::AdwButtonRow* (*call_wrap_t) ();
+  call_wrap_t call_wrap_v = (call_wrap_t) adw_button_row_new;
+  auto _temp_ret = call_wrap_v ();
+  return gi::wrap (_temp_ret, gi::transfer_none);
+}
+
+// const char* /*none,nullable*/ adw_button_row_get_end_icon_name (AdwButtonRow* self /*none*/);
+// const char* /*none,nullable*/ adw_button_row_get_end_icon_name (::AdwButtonRow* self /*none*/);
+gi::cstring_v base::ButtonRowBase::get_end_icon_name () noexcept
+{
+  typedef const char* (*call_wrap_t) (::AdwButtonRow* self);
+  call_wrap_t call_wrap_v = (call_wrap_t) ::adw_button_row_get_end_icon_name;
+  auto _temp_ret = call_wrap_v ((::AdwButtonRow*) (gobj_()));
+  return gi::wrap (_temp_ret, gi::transfer_none);
+}
+
+// const char* /*none,nullable*/ adw_button_row_get_start_icon_name (AdwButtonRow* self /*none*/);
+// const char* /*none,nullable*/ adw_button_row_get_start_icon_name (::AdwButtonRow* self /*none*/);
+gi::cstring_v base::ButtonRowBase::get_start_icon_name () noexcept
+{
+  typedef const char* (*call_wrap_t) (::AdwButtonRow* self);
+  call_wrap_t call_wrap_v = (call_wrap_t) ::adw_button_row_get_start_icon_name;
+  auto _temp_ret = call_wrap_v ((::AdwButtonRow*) (gobj_()));
+  return gi::wrap (_temp_ret, gi::transfer_none);
+}
+
+// void adw_button_row_set_end_icon_name (AdwButtonRow* self /*none*/, const char* icon_name /*none,nullable*/);
+// void adw_button_row_set_end_icon_name (::AdwButtonRow* self /*none*/, const char* icon_name /*none,nullable*/);
+void base::ButtonRowBase::set_end_icon_name (const gi::cstring_v icon_name) noexcept
+{
+  typedef void (*call_wrap_t) (::AdwButtonRow* self, const char* icon_name);
+  call_wrap_t call_wrap_v = (call_wrap_t) ::adw_button_row_set_end_icon_name;
+  auto icon_name_to_c = gi::unwrap (icon_name, gi::transfer_none);
+  call_wrap_v ((::AdwButtonRow*) (gobj_()), (const char*) (icon_name_to_c));
+}
+void base::ButtonRowBase::set_end_icon_name () noexcept
+{
+  typedef void (*call_wrap_t) (::AdwButtonRow* self, const char* icon_name);
+  call_wrap_t call_wrap_v = (call_wrap_t) ::adw_button_row_set_end_icon_name;
+  auto icon_name_to_c = nullptr;
+  call_wrap_v ((::AdwButtonRow*) (gobj_()), (const char*) (icon_name_to_c));
+}
+
+// void adw_button_row_set_start_icon_name (AdwButtonRow* self /*none*/, const char* icon_name /*none,nullable*/);
+// void adw_button_row_set_start_icon_name (::AdwButtonRow* self /*none*/, const char* icon_name /*none,nullable*/);
+void base::ButtonRowBase::set_start_icon_name (const gi::cstring_v icon_name) noexcept
+{
+  typedef void (*call_wrap_t) (::AdwButtonRow* self, const char* icon_name);
+  call_wrap_t call_wrap_v = (call_wrap_t) ::adw_button_row_set_start_icon_name;
+  auto icon_name_to_c = gi::unwrap (icon_name, gi::transfer_none);
+  call_wrap_v ((::AdwButtonRow*) (gobj_()), (const char*) (icon_name_to_c));
+}
+void base::ButtonRowBase::set_start_icon_name () noexcept
+{
+  typedef void (*call_wrap_t) (::AdwButtonRow* self, const char* icon_name);
+  call_wrap_t call_wrap_v = (call_wrap_t) ::adw_button_row_set_start_icon_name;
+  auto icon_name_to_c = nullptr;
+  call_wrap_v ((::AdwButtonRow*) (gobj_()), (const char*) (icon_name_to_c));
+}
+
+
+
+} // namespace base
+
+} // namespace Adw
+
+} // namespace repository
+
+} // namespace gi
+
+
+#if defined(__has_include)
+#if __has_include(<adw/buttonrow_extra_def_impl.hpp>)
+#include <adw/buttonrow_extra_def_impl.hpp>
+#endif
+#endif
+
+
+#if defined(__has_include)
+#if __has_include(<adw/buttonrow_extra_impl.hpp>)
+#include <adw/buttonrow_extra_impl.hpp>
+#endif
+#endif
+
+namespace gi {
+
+namespace repository {
+
+namespace Adw {
+
+namespace impl {
+
+namespace internal {
+
+void ButtonRowClassDef::class_init (gpointer class_struct, gpointer factory)
+{
+  ::AdwButtonRowClass *methods = (::AdwButtonRowClass *) class_struct;
+  (void) methods;
+
+  auto init_data = GI_MEMBER_INIT_DATA(TypeInitData, factory);
+  (void) init_data;
+
+}
+
+} // namespace internal
+
+} // namespace impl
+
+} // namespace Adw
+
+} // namespace repository
+
+} // namespace gi
+
+#endif
